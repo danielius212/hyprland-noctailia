@@ -114,7 +114,7 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 10,
+		rounding = 12,
 		rounding_power = 2,
 
 		-- Change transparency of focused and unfocused windows
@@ -299,7 +299,6 @@ hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(noctCall .. "session lock"))
 hl.bind(mainMod .. " + ALT + C", hl.dsp.exec_cmd(noctCall .. "panel-toggle session"))
 
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -a -n"))
-hl.bind("Print", hl.dsp.exec_cmd(noctCall .. "screenshot-region"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(noctCall .. "screenshot-fullscreen"))
 
 -- Theming and Wallpaper
@@ -364,6 +363,7 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
+hl.bind("Print", hl.dsp.exec_cmd("grimblast copy area"))
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
@@ -417,7 +417,7 @@ hl.window_rule({
 -- Force Quickshell and Qt to correctly locate your active GTK icon pack
 hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
 hl.env("QS_ICON_THEME", "Papirus")
-
+hl.env("SLURP_ARGS", "-o -B #d9773622 -b #00000000 -c #d97736ff -w 2")
 -- Permanent UK Layout Rules
 hl.config({
 	input = {
